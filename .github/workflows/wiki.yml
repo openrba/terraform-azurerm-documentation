@@ -1,0 +1,33 @@
+name: "Publish Wiki"
+
+on:
+  workflow_run:
+    workflows: ["Generate Docs"]
+    branches: [main]
+    types: [completed]
+  workflow_dispatch:
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v2
+        with:
+          repository: ${{github.repository}}.wiki # specify the wiki repo name here.
+      - uses: actions/download-artifact@v2
+        with:
+          name: docs
+      - name: edit wiki
+        run: |
+          mv docs/*.md ./
+      - name: Commit files
+        run: |
+          git config --local user.email "action@github.com"
+          git config --local user.name "GitHub Action"
+          git add .
+          git commit -m "Automated wiki publish"
+      - name: Push changes to wiki repo
+        uses: ad-m/github-push-action@master
+        with:
+          repository: ${{github.repository}}.wiki # specify the wiki repo and push the update.
+          github_token: ${{ secrets.GITHUB_TOKEN }}

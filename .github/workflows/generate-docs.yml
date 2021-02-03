@@ -1,8 +1,6 @@
-# This is a basic workflow to help you get started with Actions
-
 name: 'Generate Docs'
 
-# Controls when the action will run. 
+
 on:
   schedule:
     - cron: '30 */11 * * *'
@@ -10,28 +8,22 @@ on:
   # Allows you to run this workflow manually from the Actions tab
   workflow_dispatch:
 
-# A workflow run is made up of one or more jobs that can run sequentially or in parallel
 jobs:
-  # This workflow contains a single job called "build"
-  build:
-    # The type of runner that the job will run on
+  push:
     runs-on: ubuntu-latest
 
-    # Steps represent a sequence of tasks that will be executed as part of the job
     steps:
-      - uses: actions/checkout@v2
-      - name: Push Documentation from Repositories to docs Directory
-        run: |
-          REPOS=$(curl -u username:$GH_TOKEN \
-                       -H "Accept: application/vnd.github.v3+json" \
-                       https://api.github.com/orgs/$GH_ORG/repos \
-                       | grep -oP '(?<=^\s{4}"name": ").*?[^\\](?=",)')
-          for repo in $REPOS
-          do
-            curl \
-            -u username:$GH_TOKEN \
-            https://raw.githubusercontent.com/$GH_ORG/$repo/master/README.md > docs/$repo.md
-          done
-        env:
-          GH_TOKEN: ${{ secrets.GH_TOKEN }}
-          GH_ORG: ${{ github.organization }}
+    - uses: actions/checkout@v2
+    - uses: actions/setup-go@v2
+      with:
+        go-version: '1.15.7'
+    - run: go run main.go
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        ORG: openrba
+    - name: 'Upload Artifact'
+      uses: actions/upload-artifact@v2
+      with:
+        name: docs
+        path: docs
+        retention-days: 5
