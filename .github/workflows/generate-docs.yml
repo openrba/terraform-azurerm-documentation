@@ -1,15 +1,13 @@
-name: 'Generate Docs'
-
+name: Generate Documentation
 
 on:
   schedule:
     - cron: '30 */11 * * *'
-
-  # Allows you to run this workflow manually from the Actions tab
   workflow_dispatch:
 
 jobs:
-  push:
+  generate:
+    name: Generate Markdown
     runs-on: ubuntu-latest
 
     steps:
@@ -27,3 +25,30 @@ jobs:
         name: docs
         path: docs
         retention-days: 5
+
+
+  wiki:
+    name: Publish Github Wiki
+    needs: generate
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+        with:
+          repository: ${{github.repository}}.wiki # specify the wiki repo name here.
+      - uses: actions/download-artifact@v2
+        with:
+          name: docs
+      - name: edit wiki
+        run: |
+          echo "Success"
+      - name: Commit files
+        run: |
+          git config --local user.email "action@github.com"
+          git config --local user.name "GitHub Action"
+          git add .
+          git commit -m "Automated wiki publish"
+      - name: Push changes to wiki repo
+        uses: ad-m/github-push-action@master
+        with:
+          repository: ${{github.repository}}.wiki # specify the wiki repo and push the update.
+          github_token: ${{ secrets.GITHUB_TOKEN }}
