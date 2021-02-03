@@ -1,0 +1,27 @@
+name: 'Generate Docs'
+on:
+  schedule:
+    - cron: '30 */11 * * *'
+
+  # Allows you to run this workflow manually from the Actions tab
+  workflow_dispatch:
+
+jobs:
+  push:
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v2
+    - uses: actions/setup-go@v2
+      with:
+        go-version: '1.15.7'
+    - run: go run main.go
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        ORG: openrba
+    - name: 'Upload Artifact'
+      uses: actions/upload-artifact@v2
+      with:
+        name: docs
+        path: docs
+        retention-days: 5
