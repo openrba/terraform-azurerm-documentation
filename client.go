@@ -7,6 +7,7 @@ import (
 	"log"
 	"os"
 	"path"
+	"strings"
 
 	"github.com/google/go-github/v33/github"
 	"golang.org/x/oauth2"
@@ -16,6 +17,7 @@ import (
 type GithubClient interface {
 	GetRepos(o string) []*github.Repository
 	DownloadDoc(repo *github.Repository)
+	DownloadDocs(repos []*github.Repository)
 }
 
 // githubClient TODO
@@ -79,5 +81,17 @@ func (client *githubClient) DownloadDoc(repo *github.Repository) {
 	if err != nil {
 		log.Fatal(err)
 		return
+	}
+}
+
+// DownloadDocs TODO
+func (client *githubClient) DownloadDocs(repos []*github.Repository) {
+	for i := 0; i < len(repos); i++ {
+		repo := repos[i]
+
+		if strings.HasPrefix(*repo.Name, "terraform-azurerm") {
+			log.Printf("Downloading README from %s", *repo.Name)
+			client.DownloadDoc(repo)
+		}
 	}
 }

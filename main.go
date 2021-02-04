@@ -3,7 +3,6 @@ package main
 import (
 	log "log"
 	"os"
-	"strings"
 
 	"github.com/atsushinee/go-markdown-generator/doc"
 )
@@ -31,13 +30,6 @@ func main() {
 
 	repos := c.GetRepos(org)
 
-	for i := 0; i < len(repos); i++ {
-		repo := repos[i]
-
-		if strings.HasPrefix(*repo.Name, "terraform-azurerm") {
-			log.Printf("Downloading README from %s", *repo.Name)
-			c.DownloadDoc(repo)
-		}
-	}
+	c.DownloadDocs(repos)
 
 }
