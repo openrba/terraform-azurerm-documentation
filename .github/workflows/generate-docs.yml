@@ -22,7 +22,7 @@ jobs:
     - name: Upload Documentation to Wiki
       uses: SwiftDocOrg/github-wiki-publish-action@v1
       with:
-        path: "docs"
+        path: docs
       env:
         GH_PERSONAL_ACCESS_TOKEN: ${{ secrets.GH_TOKEN }}
     - name: Upload Artifact
@@ -31,30 +31,3 @@ jobs:
         name: docs
         path: docs
         retention-days: 5
-
-
-  wiki:
-    name: Publish Github Wiki
-    needs: generate
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v2
-        with:
-          repository: ${{github.repository}}.wiki # specify the wiki repo name here.
-      - uses: actions/download-artifact@v2
-        with:
-          name: docs
-      - name: edit wiki
-        run: |
-          echo "Success"
-      - name: Commit files
-        run: |
-          git config --local user.email "action@github.com"
-          git config --local user.name "GitHub Action"
-          git add .
-          git commit -m "Automated wiki publish"
-      - name: Push changes to wiki repo
-        uses: ad-m/github-push-action@master
-        with:
-          repository: ${{github.repository}}.wiki # specify the wiki repo and push the update.
-          github_token: ${{ secrets.GH_TOKEN }}
