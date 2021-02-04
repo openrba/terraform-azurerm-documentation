@@ -6,7 +6,7 @@ import (
 	"github.com/atsushinee/go-markdown-generator/doc"
 )
 
-// Tool for generating markdown
+// DocGenerator for generating markdown
 type DocGenerator interface {
 }
 
@@ -15,7 +15,7 @@ type docGenerator struct {
 	*doc.MarkDownDoc
 }
 
-// NewDocGenerator: Creates instance of docGenerator
+// NewDocGenerator Creates instance of docGenerator
 func NewDocGenerator() DocGenerator {
 	return &docGenerator{doc.NewMarkDown()}
 }

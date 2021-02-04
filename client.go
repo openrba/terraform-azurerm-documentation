@@ -12,7 +12,7 @@ import (
 	"golang.org/x/oauth2"
 )
 
-// Client for accessing the github Api
+// GithubClient for accessing the github Api
 type GithubClient interface {
 	GetRepos(o string) []*github.Repository
 	DownloadDoc(repo *github.Repository)
@@ -30,7 +30,7 @@ func validate(t string) {
 	}
 }
 
-// NewClient: Creates new instance of GithubClient
+// NewClient Creates new instance of GithubClient
 func NewClient(t string) GithubClient {
 	log.Print("Connecting to Github")
 	validate(t)
