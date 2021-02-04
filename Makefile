@@ -16,6 +16,9 @@ env:
 go.mod:
 	go mod init 'docs'
 
+test:
+	go test
+
 generate: go.mod
 	go run .
 
