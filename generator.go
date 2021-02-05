@@ -1,7 +1,6 @@
 package main
 
 import (
-	"fmt"
 	"log"
 	"path"
 	"strings"
@@ -36,7 +35,7 @@ func (g *docGenerator) WriteMenuItems(repos []*github.Repository) {
 	g.Write("Links: ").WriteLines(2)
 	for _, repo := range repos {
 		name := SanitizeName(*repo.Name)
-		g.WriteMenuItem(strings.ReplaceAll(name, "-", " "), fmt.Sprintf("%s.md", name))
+		g.WriteMenuItem(strings.ReplaceAll(name, "-", " "), name)
 	}
 }
 
