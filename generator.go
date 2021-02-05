@@ -34,8 +34,10 @@ func (g *docGenerator) WriteMenuItem(title string, path string) {
 func (g *docGenerator) WriteMenuItems(repos []*github.Repository) {
 	g.Write("Links: ").WriteLines(2)
 	for _, repo := range repos {
-		name := SanitizeName(*repo.Name)
-		g.WriteMenuItem(strings.ReplaceAll(name, "-", " "), name)
+		if strings.HasPrefix(*repo.Name, providerPrefix) {
+			name := SanitizeName(*repo.Name)
+			g.WriteMenuItem(strings.ReplaceAll(name, "-", " "), name)
+		}
 	}
 }
 
