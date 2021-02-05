@@ -29,12 +29,11 @@ For more info, please see https://docs.microsoft.com/en-us/azure/container-regis
 
 | Name | Description | Type | Default | Required |
 |------|-------------|------|---------|:--------:|
-| ad\_enabled | The ad enabled of the resource. | `bool` | `false` | no |
+| ad\_groups | The ad groups of the resource. | `map(list(string))` | `{}` | no |
 | admin\_enabled | Specifies whether the admin user is enabled. | `bool` | `true` | no |
 | georeplication\_locations | A list of Azure locations where the container registry should be geo-replicated. The georeplication\_locations is only supported on new resources with the Premium SKU. | `list(string)` | `null` | no |
 | location | Location for all resources | `string` | n/a | yes |
 | names | Names to be applied to resources | `map(string)` | n/a | yes |
-| prevent\_destroy | Whether we prevent the destruction of the acr resource when running terraform destroy. | `bool` | `false` | no |
 | resource\_group\_name | Resource group name | `string` | n/a | yes |
 | sku | The SKU name of the container registry. Possible values are Basic, Standard and Premium | `string` | `"Basic"` | no |
 | tags | Tags to be applied to resources | `map(string)` | n/a | yes |
