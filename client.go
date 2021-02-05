@@ -13,6 +13,8 @@ import (
 	"golang.org/x/oauth2"
 )
 
+const providerPrefix = "terraform-azurerm"
+
 // GithubClient for accessing the github Api
 type GithubClient interface {
 	GetRepos(o string) []*github.Repository
@@ -48,7 +50,14 @@ func NewClient(t string) GithubClient {
 // GetRepos TODO
 func (client *githubClient) GetRepos(o string) []*github.Repository {
 	log.Printf("Getting repositories for org %s", o)
-	repos, _, err := client.Repositories.ListByOrg(client.ctx, o, nil)
+	opts := github.RepositoryListByOrgOptions{
+		Type: "all",
+		ListOptions: github.ListOptions{
+			Page:    0,
+			PerPage: 1000,
+		},
+	}
+	repos, _, err := client.Repositories.ListByOrg(client.ctx, o, &opts)
 
 	if err != nil {
 		log.Fatal(err)
@@ -57,7 +66,21 @@ func (client *githubClient) GetRepos(o string) []*github.Repository {
 	return repos
 }
 
-// DownloadDoc TODO
+// SanitizeName formats the repo text to a pretty title name
+func SanitizeName(name string) string {
+	sb := strings.Builder{}
+
+	ss := strings.Split(strings.TrimPrefix(name, providerPrefix+"-"), "-")
+	for i, s := range ss {
+		sb.WriteString(strings.Title(strings.ToLower(s)))
+		if i < len(ss)-1 {
+			sb.WriteString("-")
+		}
+	}
+	return sb.String()
+}
+
+// DownloadDoc downloads the README.md for a given repository
 func (client *githubClient) DownloadDoc(repo *github.Repository) {
 	rc, resp, err := client.Repositories.DownloadContents(client.ctx, org, *repo.Name, "README.md", nil)
 
@@ -67,7 +90,8 @@ func (client *githubClient) DownloadDoc(repo *github.Repository) {
 	}
 
 	// Create readme in docs/{repo}.md
-	file := path.Join("docs", fmt.Sprintf("%s.md", *repo.Name))
+
+	file := path.Join("docs", fmt.Sprintf("%s.md", SanitizeName(*repo.Name)))
 	// Open a string writer for the file
 	w, err := os.Create(file)
 	if err != nil {
@@ -84,12 +108,12 @@ func (client *githubClient) DownloadDoc(repo *github.Repository) {
 	}
 }
 
-// DownloadDocs TODO
+// DownloadDocs downloads all README.md for given set of repositories
 func (client *githubClient) DownloadDocs(repos []*github.Repository) {
 	for i := 0; i < len(repos); i++ {
 		repo := repos[i]
 
-		if strings.HasPrefix(*repo.Name, "terraform-azurerm") {
+		if strings.HasPrefix(*repo.Name, providerPrefix) {
 			log.Printf("Downloading README from %s", *repo.Name)
 			client.DownloadDoc(repo)
 		}

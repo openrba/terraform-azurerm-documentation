@@ -1,14 +1,18 @@
 package main
 
 import (
+	"fmt"
 	"log"
+	"path"
+	"strings"
 
 	"github.com/atsushinee/go-markdown-generator/doc"
+	"github.com/google/go-github/v33/github"
 )
 
 // DocGenerator for generating markdown
 type DocGenerator interface {
-	WriteMenuItem(title string, path string)
+	WriteMenuItems(repos []*github.Repository)
 	ExportReadme()
 }
 
@@ -19,15 +23,25 @@ type docGenerator struct {
 
 // NewDocGenerator Creates instance of docGenerator
 func NewDocGenerator() DocGenerator {
-	return &docGenerator{doc.NewMarkDown()}
+	dg := docGenerator{doc.NewMarkDown()}
+	dg.WriteLevel1Title("Terraform Azurerm Documentation")
+	return &dg
 }
 
 func (g *docGenerator) WriteMenuItem(title string, path string) {
 	g.Write("* ").WriteLink(title, path).WriteLines(1)
 }
 
+func (g *docGenerator) WriteMenuItems(repos []*github.Repository) {
+	g.Write("Links: ").WriteLines(2)
+	for _, repo := range repos {
+		name := SanitizeName(*repo.Name)
+		g.WriteMenuItem(strings.ReplaceAll(name, "-", " "), fmt.Sprintf("%s.md", name))
+	}
+}
+
 func (g *docGenerator) ExportReadme() {
-	err := g.Export("README.md")
+	err := g.Export(path.Join("docs", "HOME.md"))
 	if err != nil {
 		log.Fatal(err)
 	}

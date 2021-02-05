@@ -1,6 +1,5 @@
 book
 .idea
 .vscode
-docs/*.md
 .env
 .history

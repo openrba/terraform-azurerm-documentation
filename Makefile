@@ -2,10 +2,8 @@ include .env
 
 PWD := $(dir $(abspath $(lastword $(MAKEFILE_LIST))))
 
-DOCKER := docker run --rm
-MOUNT := -v $(PWD):/data
-MDBOOK := -it hrektts/mdbook mdbook
-PORTS := -p 3000:3000 -p 3001:3001
+MDBOOK := docker run --rm -v $(PWD):/data -it hrektts/mdbook mdbook
+PORTS := -p 3000:3000 -p 3001:3001 -p 3000 -n 0.0.0.0
 
 .EXPORT_ALL_VARIABLES:
 
@@ -23,9 +21,18 @@ generate: go.mod
 	go run .
 
 build:
-	@$(DOCKER) $(MOUNT) $(MDBOOK) $@
+	@$(MDBOOK) $@
 
 serve: build
-	@$(DOCKER) $(PORTS) $(MOUNT) $(MDBOOK) $@ -p 3000 -n 0.0.0.0
+	@$(MDBOOK) $@ $(PORTS)
+
+help:
+	@echo All Make Targets:
+	@echo - test
+	@echo - generate
+	@echo - build
+	@echo - serve
+
+.PHONY: test generate build serve
 
 .ONESHELL:
