@@ -71,7 +71,6 @@ For more info, please see https://docs.microsoft.com/en-us/azure/azure-sql/datab
 | query\_store\_wait\_statistics | Contains information about the query wait statistics (what your queries waited on) such are CPU, LOG, and LOCKING. Valid values are for Retention policy ranges from 1 to 365 days. If you don't want to apply any retention policy, set retention days to '0' | `number` | `0` | no |
 | replicate\_wild\_ignore\_table | Creates a replication filter which keeps the slave thread from replicating a statement in which any table matches the given wildcard pattern. To specify more than one table to ignore, use comma-separated list. | `string` | `"sql.%,tempdb.%"` | no |
 | resource\_group\_name | name of the resource group to create the resource | `string` | n/a | yes |
-| sa\_resource\_group | Azure resource group where the storage account resides. | `string` | n/a | yes |
 | server\_id | Specifies the server identifier to SQL Server server resource | `string` | n/a | yes |
 | service\_endpoints | Creates a virtual network rule in the subnet\_id (values are virtual network subnet ids). | `map(string)` | `{}` | no |
 | sku\_name | Azure database for SQL Server sku name | `string` | `"GP_Gen5_2"` | no |
@@ -80,7 +79,6 @@ For more info, please see https://docs.microsoft.com/en-us/azure/azure-sql/datab
 | sql\_insights | Contains Intelligent Insights into performance for a database. Valid values are for Retention policy ranges from 1 to 365 days. If you don't want to apply any retention policy, set retention days to '0' | `number` | `0` | no |
 | sql\_version | SQL Server version | `string` | `"12.0"` | no |
 | ssl\_enforcement\_enabled | Specifies if SSL should be enforced on connections. Possible values are true and false. | `bool` | `true` | no |
-| storage\_account | This blob storage will hold all Threat Detection audit logs. Required if state is Enabled. | `string` | n/a | yes |
 | storage\_mb | Max storage allowed for a server | `number` | `"10240"` | no |
 | tags | tags to be applied to resources | `map(string)` | n/a | yes |
 | timeouts | Contains information about timeouts on a database. Valid values are for Retention policy ranges from 1 to 365 days. If you don't want to apply any retention policy, set retention days to '0' | `number` | `0` | no |

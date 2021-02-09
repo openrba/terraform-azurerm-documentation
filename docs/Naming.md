@@ -133,6 +133,7 @@ Custom LexisNexis RSG entities are variables and allowed values that describe ou
 |<sub>Staging</sub>|<sub>global</sub>|<sub>az[10]</sub>|<sub>staging</sub>|
 |<sub>Greenfield</sub>|<sub>global</sub>|<sub>az[10]</sub>|<sub>greenfield</sub>|
 |<sub>UAT (CT)</sub>|<sub>global</sub>|<sub>az[10]</sub>|<sub>uat</sub>|
+|<sub>Non-Production</sub>|<sub>global</sub>|<sub>az[10]</sub>|<sub>nonprod</sub>|
 |<sub>Production</sub>|<sub>global</sub>|<sub>az[10]</sub>|<sub>prod</sub>|
 |<sub>Disaster Recovery</sub>|<sub>global</sub>|<sub>az[10]</sub>|<sub>dr</sub>|
 
