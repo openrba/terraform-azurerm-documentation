@@ -165,6 +165,7 @@ Custom LexisNexis RSG entities are variables and allowed values that describe ou
 |<sub>Core Services Platform</sub>|<sub>global</sub>|<sub>az[12]</sub>|<sub>core</sub>|
 |<sub>HPCC Systems</sub>|<sub>global</sub>|<sub>az[12]</sub>|<sub>hpcc</sub>|
 |<sub>Core Networking</sub>|<sub>global</sub>|<sub>az[12]</sub>|<sub>networks</sub>|
+|<sub>Acquisition and Retention</sub>|<sub>global</sub>|<sub>az[12]</sub>|<sub>ar</sub>|
 |<sub>DataTools Arch Angel</sub>|<sub>global</sub>|<sub>az[12]</sub>|<sub>archangel</sub>|
 |<sub>Acquisition & Retention Delivery Platform</sub>|<sub>global</sub>|<sub>az[12]</sub>|<sub>arportal</sub>|
 |<sub>Threatmetrix</sub>|<sub>global</sub>|<sub>az[12]</sub>|<sub>tmx</sub>|
@@ -197,6 +198,7 @@ Custom LexisNexis RSG entities are variables and allowed values that describe ou
 |<sub>Threatmetrix Portal</sub>|<sub>global</sub>|<sub>az[16]</sub>|<sub>tmxportal</sub>|
 |<sub>Threatmetrix Operations</sub>|<sub>global</sub>|<sub>az[16]</sub>|<sub>tmxops</sub>|
 |<sub>Threatmetrix Networking</sub>|<sub>global</sub>|<sub>az[16]</sub>|<sub>tmxnet</sub>|
+|<sub>Insurance Prescreen</sub>|<sub>global</sub>|<sub>az[16]</sub>|<sub>insprescreen</sub>|
 
 ## custom.resourceGroupType
 
