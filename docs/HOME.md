@@ -16,7 +16,6 @@ Links:
 * [Monitor Diagnostic Setting](Monitor-Diagnostic-Setting)
 * [Velero Backup](Velero-Backup)
 * [Expressroute](Expressroute)
-* [Metadata](Metadata)
 * [Firewall Rule Push](Firewall-Rule-Push)
 * [Firewall Rules](Firewall-Rules)
 * [Postgres Monitor](Postgres-Monitor)
