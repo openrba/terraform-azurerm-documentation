@@ -122,6 +122,7 @@ Custom LexisNexis RSG entities are variables and allowed values that describe ou
 |<sub>Ola Osunkoya Cost Center</sub>|<sub>global</sub>|<sub>az[5]</sub>|<sub>ct674</sub>|
 |<sub>ID Analytics</sub>|<sub>global</sub>|<sub>az[5]</sub>|<sub>ic301</sub>|
 |<sub>Threatmetrix</sub>|<sub>global</sub>|<sub>az[5]</sub>|<sub>tx501</sub>|
+|<sub>DataTools Cost Center</sub>|<sub>global</sub>|<sub>az[5]</sub>|<sub>st385</sub>|
 
 ## custom.environment
 
@@ -169,9 +170,9 @@ Custom LexisNexis RSG entities are variables and allowed values that describe ou
 |<sub>HPCC Systems</sub>|<sub>global</sub>|<sub>az[12]</sub>|<sub>hpcc</sub>|
 |<sub>Core Networking</sub>|<sub>global</sub>|<sub>az[12]</sub>|<sub>networks</sub>|
 |<sub>Acquisition and Retention</sub>|<sub>global</sub>|<sub>az[12]</sub>|<sub>ar</sub>|
-|<sub>DataTools Arch Angel</sub>|<sub>global</sub>|<sub>az[12]</sub>|<sub>archangel</sub>|
 |<sub>Acquisition & Retention Delivery Platform</sub>|<sub>global</sub>|<sub>az[12]</sub>|<sub>arportal</sub>|
 |<sub>Threatmetrix</sub>|<sub>global</sub>|<sub>az[12]</sub>|<sub>tmx</sub>|
+|<sub>DataTools Apps</sub>|<sub>global</sub>|<sub>az[12]</sub>|<sub>datatools</sub>|
 
 ## custom.productName
 
@@ -188,7 +189,6 @@ Custom LexisNexis RSG entities are variables and allowed values that describe ou
 |<sub>ID Analytics MapReduce</sub>|<sub>global</sub>|<sub>az[16]</sub>|<sub>idamapr</sub>|
 |<sub>Azure Express Route</sub>|<sub>global</sub>|<sub>az[16]</sub>|<sub>expressroute</sub>|
 |<sub>Domain Name System (DNS)</sub>|<sub>global</sub>|<sub>az[16]</sub>|<sub>dns</sub>|
-|<sub>Public Records Arch Angel</sub>|<sub>global</sub>|<sub>az[16]</sub>|<sub>prarchangel</sub>|
 |<sub>Coplogic SFTP</sub>|<sub>global</sub>|<sub>az[16]</sub>|<sub>coplogicsftp</sub>|
 |<sub>Green Field</sub>|<sub>global</sub>|<sub>az[16]</sub>|<sub>greenfield</sub>|
 |<sub>Azure Access Requests</sub>|<sub>global</sub>|<sub>az[16]</sub>|<sub>access</sub>|
@@ -202,6 +202,14 @@ Custom LexisNexis RSG entities are variables and allowed values that describe ou
 |<sub>Threatmetrix Operations</sub>|<sub>global</sub>|<sub>az[16]</sub>|<sub>tmxops</sub>|
 |<sub>Threatmetrix Networking</sub>|<sub>global</sub>|<sub>az[16]</sub>|<sub>tmxnet</sub>|
 |<sub>Insurance Prescreen</sub>|<sub>global</sub>|<sub>az[16]</sub>|<sub>insprescreen</sub>|
+|<sub>Public Records Arch Angel</sub>|<sub>global</sub>|<sub>az[16]</sub>|<sub>dtprarchangel</sub>|
+|<sub>Identity Management App</sub>|<sub>global</sub>|<sub>az[16]</sub>|<sub>dtidentity</sub>|
+|<sub>Application Tracker</sub>|<sub>global</sub>|<sub>az[16]</sub>|<sub>dtapptracker</sub>|
+|<sub>Data Tracking Form</sub>|<sub>global</sub>|<sub>az[16]</sub>|<sub>dtdtf</sub>|
+|<sub>Data Eng Coverage</sub>|<sub>global</sub>|<sub>az[16]</sub>|<sub>dtcoverage</sub>|
+|<sub>Data Eng DataMetrics</sub>|<sub>global</sub>|<sub>az[16]</sub>|<sub>dtdatametrics</sub>|
+|<sub>ORBIT Public Records</sub>|<sub>global</sub>|<sub>az[16]</sub>|<sub>dtprorbit</sub>|
+|<sub>Data Eng Roadmap</sub>|<sub>global</sub>|<sub>az[16]</sub>|<sub>dtroadmap</sub>|
 
 ## custom.resourceGroupType
 
