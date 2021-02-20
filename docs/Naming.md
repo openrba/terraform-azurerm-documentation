@@ -173,6 +173,7 @@ Custom LexisNexis RSG entities are variables and allowed values that describe ou
 |<sub>Acquisition & Retention Delivery Platform</sub>|<sub>global</sub>|<sub>az[12]</sub>|<sub>arportal</sub>|
 |<sub>Threatmetrix</sub>|<sub>global</sub>|<sub>az[12]</sub>|<sub>tmx</sub>|
 |<sub>DataTools Apps</sub>|<sub>global</sub>|<sub>az[12]</sub>|<sub>datatools</sub>|
+|<sub>Data Science</sub>|<sub>global</sub>|<sub>az[12]</sub>|<sub>datasci</sub>|
 
 ## custom.productName
 
@@ -210,6 +211,7 @@ Custom LexisNexis RSG entities are variables and allowed values that describe ou
 |<sub>Data Eng DataMetrics</sub>|<sub>global</sub>|<sub>az[16]</sub>|<sub>dtdatametrics</sub>|
 |<sub>ORBIT Public Records</sub>|<sub>global</sub>|<sub>az[16]</sub>|<sub>dtprorbit</sub>|
 |<sub>Data Eng Roadmap</sub>|<sub>global</sub>|<sub>az[16]</sub>|<sub>dtroadmap</sub>|
+|<sub>Tardis</sub>|<sub>global</sub>|<sub>az[16]</sub>|<sub>tardis</sub>|
 
 ## custom.resourceGroupType
 
