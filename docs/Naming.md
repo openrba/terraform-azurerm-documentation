@@ -167,6 +167,7 @@ Custom LexisNexis RSG entities are variables and allowed values that describe ou
 |<sub>Iyetek Delivery Platform</sub>|<sub>global</sub>|<sub>az[12]</sub>|<sub>iyetek</sub>|
 |<sub>Coplogic Solutions Delivery Platform</sub>|<sub>global</sub>|<sub>az[12]</sub>|<sub>coplogic</sub>|
 |<sub>Core Services Platform</sub>|<sub>global</sub>|<sub>az[12]</sub>|<sub>core</sub>|
+|<sub>Enterprise Service Platform</sub>|<sub>global</sub>|<sub>az[12]</sub>|<sub>esp</sub>|
 |<sub>HPCC Systems</sub>|<sub>global</sub>|<sub>az[12]</sub>|<sub>hpcc</sub>|
 |<sub>Core Networking</sub>|<sub>global</sub>|<sub>az[12]</sub>|<sub>networks</sub>|
 |<sub>Acquisition and Retention</sub>|<sub>global</sub>|<sub>az[12]</sub>|<sub>ar</sub>|
@@ -185,6 +186,7 @@ Custom LexisNexis RSG entities are variables and allowed values that describe ou
 |<sub>HashiCorp Vault</sub>|<sub>global</sub>|<sub>az[16]</sub>|<sub>hashicorpvault</sub>|
 |<sub>Terraform</sub>|<sub>global</sub>|<sub>az[16]</sub>|<sub>terraform</sub>|
 |<sub>Terraform Enterprise</sub>|<sub>global</sub>|<sub>az[16]</sub>|<sub>tfe</sub>|
+|<sub>Enterprise Service Platform</sub>|<sub>global</sub>|<sub>az[16]</sub>|<sub>esp</sub>|
 |<sub>HPCC Systems</sub>|<sub>global</sub>|<sub>az[16]</sub>|<sub>hpcc</sub>|
 |<sub>Azure Budget Alerts</sub>|<sub>global</sub>|<sub>az[16]</sub>|<sub>budgetalerts</sub>|
 |<sub>ID Analytics MapReduce</sub>|<sub>global</sub>|<sub>az[16]</sub>|<sub>idamapr</sub>|
