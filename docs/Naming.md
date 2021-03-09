@@ -175,6 +175,7 @@ Custom LexisNexis RSG entities are variables and allowed values that describe ou
 |<sub>Threatmetrix</sub>|<sub>global</sub>|<sub>az[12]</sub>|<sub>tmx</sub>|
 |<sub>DataTools Apps</sub>|<sub>global</sub>|<sub>az[12]</sub>|<sub>datatools</sub>|
 |<sub>Data Science</sub>|<sub>global</sub>|<sub>az[12]</sub>|<sub>datasci</sub>|
+|<sub>Master Backoffice System</sub>|<sub>global</sub>|<sub>az[12]</sub>|<sub>mbs</sub>|
 
 ## custom.productName
 
@@ -197,7 +198,8 @@ Custom LexisNexis RSG entities are variables and allowed values that describe ou
 |<sub>Azure Access Requests</sub>|<sub>global</sub>|<sub>az[16]</sub>|<sub>access</sub>|
 |<sub>Acquisition Retention Portal Web</sub>|<sub>global</sub>|<sub>az[16]</sub>|<sub>arportalweb</sub>|
 |<sub>Acquisition Retention Portal API</sub>|<sub>global</sub>|<sub>az[16]</sub>|<sub>arportalapi</sub>|
-|<sub>Master Backoffice System</sub>|<sub>global</sub>|<sub>az[16]</sub>|<sub>mbs</sub>|
+|<sub>MBS Linux Infra</sub>|<sub>global</sub>|<sub>az[16]</sub>|<sub>mbslinux</sub>|
+|<sub>MBS Windows Infra</sub>|<sub>global</sub>|<sub>az[16]</sub>|<sub>mbswindows</sub>|
 |<sub>Threatmetrix Aerospike</sub>|<sub>global</sub>|<sub>az[16]</sub>|<sub>tmxas</sub>|
 |<sub>Threatmetrix Data Infra</sub>|<sub>global</sub>|<sub>az[16]</sub>|<sub>tmxdata</sub>|
 |<sub>Threatmetrix Otin</sub>|<sub>global</sub>|<sub>az[16]</sub>|<sub>tmxotin</sub>|
@@ -611,7 +613,10 @@ Azure entities are entities as maintained by Microsoft Azure and should contain 
 |<sub>Entity</sub>|<sub>Scope</sub>|<sub>Rule</sub>|<sub>Convention</sub>|<sub>Example</sub>|
 | ------ | ------ | ------ | ------ | ------ |
 |<sub>actionGroups</sub>|<sub>resource group</sub>|<sub>a-9[260]</sub>|<sub></sub>|<sub></sub>|
+|<sub>activityLogAlerts</sub>|<sub>resource group</sub>|<sub>a-9[260]</sub>|<sub></sub>|<sub></sub>|
 |<sub>components</sub>|<sub>resource group</sub>|<sub>a-9[260]</sub>|<sub></sub>|<sub></sub>|
+|<sub>metricAlerts</sub>|<sub>resource group</sub>|<sub>a-9[260]</sub>|<sub></sub>|<sub></sub>|
+|<sub>scheduledQueryRules</sub>|<sub>resource group</sub>|<sub>a-9[260]</sub>|<sub></sub>|<sub></sub>|
 
 ## azure.IoTCentral
 
