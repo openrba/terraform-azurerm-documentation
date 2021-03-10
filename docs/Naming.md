@@ -199,7 +199,7 @@ Custom LexisNexis RSG entities are variables and allowed values that describe ou
 |<sub>Acquisition Retention Portal Web</sub>|<sub>global</sub>|<sub>az[16]</sub>|<sub>arportalweb</sub>|
 |<sub>Acquisition Retention Portal API</sub>|<sub>global</sub>|<sub>az[16]</sub>|<sub>arportalapi</sub>|
 |<sub>MBS Linux Infra</sub>|<sub>global</sub>|<sub>az[16]</sub>|<sub>mbslinux</sub>|
-|<sub>MBS Windows Infra</sub>|<sub>global</sub>|<sub>az[16]</sub>|<sub>mbswindows</sub>|
+|<sub>MBS Windows Infra</sub>|<sub>global</sub>|<sub>az[16]</sub>|<sub>mbswin</sub>|
 |<sub>Threatmetrix Aerospike</sub>|<sub>global</sub>|<sub>az[16]</sub>|<sub>tmxas</sub>|
 |<sub>Threatmetrix Data Infra</sub>|<sub>global</sub>|<sub>az[16]</sub>|<sub>tmxdata</sub>|
 |<sub>Threatmetrix Otin</sub>|<sub>global</sub>|<sub>az[16]</sub>|<sub>tmxotin</sub>|
