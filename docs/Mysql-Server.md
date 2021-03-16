@@ -9,8 +9,8 @@ For more info, please see https://docs.microsoft.com/en-us/azure/mysql/.
 
 | Name | Version |
 |------|---------|
-| azurerm | >= 2.25.0 |
-| random | >= 2.2.0 |
+| azurerm | n/a |
+| random | n/a |
 
 ## Inputs
 
@@ -20,6 +20,7 @@ For more info, please see https://docs.microsoft.com/en-us/azure/mysql/.
 | ad\_admin\_login\_name | The login name of the azure ad admin. | `string` | `""` | no |
 | administrator\_login | Database administrator login name | `string` | `"az_dbadmin"` | no |
 | administrator\_password | Database administrator login name (leave blank to generate random string) | `string` | `""` | no |
+| all\_metrics | Retention only applies to storage account. Retention policy ranges from 1 to 365 days. If you do not want to apply any retention policy and retain data forever, set retention (days) to 0. | `number` | `0` | no |
 | audit\_log\_enabled | The value of this variable is ON or OFF to Allow to audit the log. | `string` | `"ON"` | no |
 | auto\_grow\_enabled | Enable/Disable auto-growing of the storage. | `bool` | `false` | no |
 | backup\_retention\_days | Backup retention days for the server, supported values are between 7 and 35 days. | `number` | `7` | no |
@@ -28,16 +29,13 @@ For more info, please see https://docs.microsoft.com/en-us/azure/mysql/.
 | creation\_source\_server\_id | the source server ID to use. use this only when creating a read replica server | `string` | `""` | no |
 | database\_defaults | database default charset and collation (only applied to databases managed within this module) | <pre>object({<br>    charset   = string<br>    collation = string<br>  })</pre> | <pre>{<br>  "charset": "utf8",<br>  "collation": "utf8_unicode_ci"<br>}</pre> | no |
 | databases | Map of databases to create (keys are database names). Allowed values are the same as for database\_defaults. | `map` | `{}` | no |
-| ds\_metrics\_retention\_days | Retention only applies to storage account. Retention policy ranges from 1 to 365 days. If you do not want to apply any retention policy and retain data forever, set retention (days) to 0. | `number` | `0` | no |
 | enable\_mysql\_ad\_admin | Set a user or group as the AD administrator for an MySQL server in Azure | `bool` | `false` | no |
-| errors | failed connections. | `number` | `0` | no |
 | event\_scheduler | Indicates the status of the Event Scheduler. It is always ON for a replica server. | `string` | `"OFF"` | no |
 | geo\_redundant\_backup\_enabled | Turn Geo-redundant server backups on/off. This allows you to choose between locally redundant or geo-redundant backup storage in the General Purpose and Memory Optimized tiers. When the backups are stored in geo-redundant backup storage, they are not only stored within the region in which your server is hosted, but are also replicated to a paired data center. This provides better protection and ability to restore your server in a different region in the event of a disaster. This is not supported for the Basic tier. | `bool` | `false` | no |
 | infrastructure\_encryption\_enabled | Whether or not infrastructure is encrypted for this server. Defaults to false. Changing this forces a new resource to be created. | `bool` | `false` | no |
 | innodb\_autoinc\_lock\_mode | The lock mode to use for generating auto-increment values. | `string` | `"2"` | no |
 | innodb\_file\_per\_table | InnoDB stores the data and indexes for each newly created table in a separate .ibd file instead of the system tablespace. It cannot be updated any more for a master/replica server to keep the replication consistency. | `string` | `"ON"` | no |
 | join\_buffer\_size | The minimum size of the buffer that is used for plain index scans, range index scans, and joins that do not use indexes and thus perform full table scans. | `string` | `"8000000"` | no |
-| latency | max lag accross replicas - lag in bytes of the most lagging replica. replica lag - replica lag in seconds | `number` | `0` | no |
 | local\_infile | This variable controls server-side LOCAL capability for LOAD DATA statements. | `string` | `"ON"` | no |
 | location | Specifies the supported Azure location to MySQL server resource | `string` | n/a | yes |
 | max\_allowed\_packet | The maximum size of one packet or any generated/intermediate string, or any parameter sent by the mysql\_stmt\_send\_long\_data() C API function. | `string` | `"1073741824"` | no |
@@ -57,7 +55,6 @@ For more info, please see https://docs.microsoft.com/en-us/azure/mysql/.
 | query\_store\_wait\_sampling\_frequency | The query store wait event sampling frequency in seconds. | `string` | `"30"` | no |
 | replicate\_wild\_ignore\_table | Creates a replication filter which keeps the slave thread from replicating a statement in which any table matches the given wildcard pattern. To specify more than one table to ignore, use comma-separated list. | `string` | `"mysql.%,tempdb.%"` | no |
 | resource\_group\_name | name of the resource group to create the resource | `string` | n/a | yes |
-| saturation | backup storage used. cpu percent. io percent. memory percent. server log storage percent. server log storage used. storage limit. storage percent. storage used. | `number` | `0` | no |
 | server\_id | identifier appended to server name for more info see https://github.com/openrba/python-azure-naming#azuredbformysql | `string` | n/a | yes |
 | service\_endpoints | Creates a virtual network rule in the subnet\_id (values are virtual network subnet ids). | `map(string)` | `{}` | no |
 | skip\_show\_database | This prevents people from using the SHOW DATABASES statement if they do not have the SHOW DATABASES privilege. | `string` | `"OFF"` | no |
@@ -65,14 +62,10 @@ For more info, please see https://docs.microsoft.com/en-us/azure/mysql/.
 | slow\_query\_log | Enable or disable the slow query log | `string` | `"OFF"` | no |
 | sort\_buffer\_size | Each session that must perform a sort allocates a buffer of this size. | `string` | `"2000000"` | no |
 | ssl\_enforcement\_enabled | Specifies if SSL should be enforced on connections. Possible values are true and false. | `bool` | `true` | no |
-| storage\_account\_access\_key | Specifies the identifier key of the Threat Detection audit storage account. Required if state is Enabled. | `string` | `""` | no |
-| storage\_account\_resource\_group | Azure resource group where the storage account resides. | `string` | n/a | yes |
-| storage\_endpoint | This blob storage will hold all diagnostic setting audit logs. Required if state is Enabled. | `string` | `""` | no |
 | storage\_mb | Max storage allowed for a server | `number` | `"10240"` | no |
 | tags | tags to be applied to resources | `map(string)` | n/a | yes |
 | threat\_detection\_policy | Threat detection policy configuration.  If not input, threat detection will be disabled. | <pre>object({<br>    enable_threat_detection_policy   = bool<br>    threat_detection_email_addresses = list(string)<br>  })</pre> | n/a | yes |
 | tmp\_table\_size | The maximum size of internal in-memory temporary tables. This variable does not apply to user-created MEMORY tables. | `string` | `"64000000"` | no |
-| traffic | active connections, network data in across active connections, network data out accross active connections. | `number` | `0` | no |
 | transaction\_isolation | The default transaction isolation level. | `string` | `"READ-COMMITTED"` | no |
 
 ## Outputs

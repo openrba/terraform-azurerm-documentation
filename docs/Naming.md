@@ -20,11 +20,11 @@ This repository has four primary areas and their methods of use are described by
 ## How to Update
 
 
-This information is meant to be a living source of truth for applications and policy and as such is expected to be versioned and updated.  If you wish to add allowed values for any of the variables or need a naming convention that is not provided in this data, open an issue request agains this repo. Upon review the information will be updated and the policy engines will reflect the changes immediately.
+This information is meant to be a living source of truth for applications and policy and as such is expected to be versioned and updated.  If you wish to add allowed values for any of the variables or need a naming convention that is not provided in this data, open an issue or pull request agains this repo. Upon review the information will be updated and the policy engines will reflect the changes immediately.
 # LN RSG Entities
 
 
-Custom LexisNexis RSG entities are variables and allowed values that describe our business and purpose at LN-RSG and are the only approved values to be used in names and tags. This assures consistency and data integrity across all resources being named and tagged in Azure.  If you would like to add additional allowed values, simply open an issue request against this repo and upon review the value will be added. 
+Custom LexisNexis RSG entities are variables and allowed values that describe our business and purpose at LN-RSG and are the only approved values to be used in names and tags. This assures consistency and data integrity across all resources being named and tagged in Azure.  If you would like to add additional allowed values, simply open a pull request against this repo and upon review the value will be added. 
 ## custom.applicationName
 
 |<sub>Full Text</sub>|<sub>Scope</sub>|<sub>Rule</sub>|<sub>Value</sub>|
@@ -78,12 +78,12 @@ Custom LexisNexis RSG entities are variables and allowed values that describe ou
 |<sub>Norway West</sub>|<sub>global</sub>|<sub>az[20]</sub>|<sub>norwaywest</sub>|
 |<sub>Norway East</sub>|<sub>global</sub>|<sub>az[20]</sub>|<sub>norwayeast</sub>|
 |<sub>Brazil Southeast</sub>|<sub>global</sub>|<sub>az[20]</sub>|<sub>brazilsoutheast</sub>|
-|<sub>US Government Virginia</sub>|<sub>global</sub>|<sub>az[20]</sub>|<sub>usgovvirginia</sub>|
-|<sub>US Government Iowa</sub>|<sub>global</sub>|<sub>az[20]</sub>|<sub>usgoviowa</sub>|
+|<sub>US Gov Virginia</sub>|<sub>global</sub>|<sub>az[20]</sub>|<sub>usgovvirginia</sub>|
+|<sub>US Gov Iowa</sub>|<sub>global</sub>|<sub>az[20]</sub>|<sub>usgoviowa</sub>|
 |<sub>US DoD East</sub>|<sub>global</sub>|<sub>az[20]</sub>|<sub>usdodeast</sub>|
 |<sub>US DoD Central</sub>|<sub>global</sub>|<sub>az[20]</sub>|<sub>usdodcentral</sub>|
-|<sub>US Government Texas</sub>|<sub>global</sub>|<sub>az[20]</sub>|<sub>usgovtexas</sub>|
-|<sub>US Government Arizona</sub>|<sub>global</sub>|<sub>az[20]</sub>|<sub>usgovarizona</sub>|
+|<sub>US Gov Texas</sub>|<sub>global</sub>|<sub>az[20]</sub>|<sub>usgovtexas</sub>|
+|<sub>US Gov Arizona</sub>|<sub>global</sub>|<sub>az[20]</sub>|<sub>usgovarizona</sub>|
 
 ## custom.businessUnit
 
@@ -176,6 +176,7 @@ Custom LexisNexis RSG entities are variables and allowed values that describe ou
 |<sub>DataTools Apps</sub>|<sub>global</sub>|<sub>az[12]</sub>|<sub>datatools</sub>|
 |<sub>Data Science</sub>|<sub>global</sub>|<sub>az[12]</sub>|<sub>datasci</sub>|
 |<sub>Master Backoffice System</sub>|<sub>global</sub>|<sub>az[12]</sub>|<sub>mbs</sub>|
+|<sub>Motor Vehicle Report Platform</sub>|<sub>global</sub>|<sub>az[12]</sub>|<sub>mvr</sub>|
 
 ## custom.productName
 
@@ -216,6 +217,7 @@ Custom LexisNexis RSG entities are variables and allowed values that describe ou
 |<sub>ORBIT Public Records</sub>|<sub>global</sub>|<sub>az[16]</sub>|<sub>dtprorbit</sub>|
 |<sub>Data Eng Roadmap</sub>|<sub>global</sub>|<sub>az[16]</sub>|<sub>dtroadmap</sub>|
 |<sub>Tardis</sub>|<sub>global</sub>|<sub>az[16]</sub>|<sub>tardis</sub>|
+|<sub>Motor Vehicle Report</sub>|<sub>global</sub>|<sub>az[16]</sub>|<sub>mvr</sub>|
 
 ## custom.resourceGroupType
 
@@ -236,7 +238,7 @@ Custom LexisNexis RSG entities are variables and allowed values that describe ou
 |<sub>Full Text</sub>|<sub>Scope</sub>|<sub>Rule</sub>|<sub>Value</sub>|
 | ------ | ------ | ------ | ------ |
 |<sub>Application Gateway</sub>|<sub>global</sub>|<sub>A-Z[24]</sub>|<sub>azure-appgateway</sub>|
-|<sub>VPN Gateway</sub>|<sub>global</sub>|<sub>A-Z[24]</sub>|<sub>azure-vpngateway</sub>|
+|<sub>VPN Gateway</sub>|<sub>global</sub>|<sub>A-Z[24]</sub>|<sub>GatewaySubnet</sub>|
 |<sub>Azure Firewall</sub>|<sub>global</sub>|<sub>A-Z[24]</sub>|<sub>azure-firewall</sub>|
 |<sub>Redis Cache</sub>|<sub>global</sub>|<sub>A-Z[24]</sub>|<sub>azure-rediscache</sub>|
 |<sub>Azure SQL Database</sub>|<sub>global</sub>|<sub>A-Z[24]</sub>|<sub>azure-sqldatabase</sub>|
