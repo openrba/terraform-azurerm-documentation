@@ -22,7 +22,6 @@ Links:
 * [Container Registry](Container-Registry)
 * [Bastion Service](Bastion-Service)
 * [Storage Account Monitor](Storage-Account-Monitor)
-* [Naming](Naming)
 * [Database Monitor](Database-Monitor)
 * [Vm](Vm)
 * [Vm Monitor](Vm-Monitor)
