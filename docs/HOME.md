@@ -23,7 +23,6 @@ Links:
 * [Bastion Service](Bastion-Service)
 * [Storage Account Monitor](Storage-Account-Monitor)
 * [Database Monitor](Database-Monitor)
-* [Vm](Vm)
 * [Vm Monitor](Vm-Monitor)
 * [Oracle Iaas](Oracle-Iaas)
 * [Database Migration Service](Database-Migration-Service)
